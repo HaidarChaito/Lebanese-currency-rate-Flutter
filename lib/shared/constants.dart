@@ -9,6 +9,7 @@ class AppSize {
   static double d24 = 24.0;
   static double d28 = 28.0;
   static double d30 = 30.0;
+  static double d50 = 50.0;
   static double d100 = 100.0;
 }
 

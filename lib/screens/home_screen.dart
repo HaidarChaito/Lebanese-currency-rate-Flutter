@@ -6,6 +6,7 @@ import 'package:lirarate/shared/app_colors.dart';
 import 'package:lirarate/shared/app_strings.dart';
 import 'package:lirarate/shared/constants.dart';
 import 'package:lirarate/widgets/bottom_card.dart';
+import 'package:lirarate/widgets/fuel_data_row.dart';
 import 'package:lirarate/widgets/hero_card.dart';
 import 'package:flutter/services.dart';
 
@@ -66,8 +67,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             Lottie.asset(
                               AppAssets.kDollarAnimated,
                               fit: BoxFit.fill,
-                              width: AppSize.d100,
-                              height: AppSize.d100,
+                              width: AppSize.d50,
+                              height: AppSize.d50,
                             ),
                             SizedBox(
                               height: constraints.maxHeight * 0.03,
@@ -77,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               style: AppTextStyles.kMainTextStyleWhite,
                             ),
                             SizedBox(
-                                height: constraints.maxHeight * 0.05,
+                                height: constraints.maxHeight * 0.04,
                                 width: constraints.maxWidth * 0.4,
                                 child: const Divider(
                                   color: AppColors.kDividerColor,
@@ -85,6 +86,17 @@ class _HomeScreenState extends State<HomeScreen> {
                                 )),
                             Text(
                               'Sell : ${Provider.of<DataHandler>(context).rateGrabber.rateData.sellPrice}',
+                              style: AppTextStyles.kMainTextStyleWhite,
+                            ),
+                            SizedBox(
+                                height: constraints.maxHeight * 0.04,
+                                width: constraints.maxWidth * 0.4,
+                                child: const Divider(
+                                  color: AppColors.kDividerColor,
+                                  thickness: 3,
+                                )),
+                            Text(
+                              'Sayrafa : ${Provider.of<DataHandler>(context).rateGrabber.rateData.sayrafa}',
                               style: AppTextStyles.kMainTextStyleWhite,
                             ),
                             Text(
@@ -99,7 +111,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     SizedBox(
-                      height: constraints.maxHeight * 0.08,
+                      height: constraints.maxHeight * 0.065,
                       child: Lottie.asset('resources/animations/fuel.json'),
                     ),
                     Text(
@@ -111,13 +123,33 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     BottomCard(
                       child: [
-                        'UNL98:  ${Provider.of<DataHandler>(context).fuelGrabber.fuelData.unl98Price}',
-                        'UNL95:  ${Provider.of<DataHandler>(context).fuelGrabber.fuelData.unl95Price}',
-                        'Disel:  ${Provider.of<DataHandler>(context).fuelGrabber.fuelData.diselPrice}',
-                        'Gas:  ${Provider.of<DataHandler>(context).fuelGrabber.fuelData.gasPrice}',
+                        FuelDataRow(
+                            name: 'UNL98: ',
+                            price: Provider.of<DataHandler>(context)
+                                .fuelGrabber
+                                .fuelData
+                                .unl98Price),
+                        FuelDataRow(
+                            name: 'UNL95: ',
+                            price: Provider.of<DataHandler>(context)
+                                .fuelGrabber
+                                .fuelData
+                                .unl95Price),
+                        FuelDataRow(
+                            name: 'Disel: ',
+                            price: Provider.of<DataHandler>(context)
+                                .fuelGrabber
+                                .fuelData
+                                .diselPrice),
+                        FuelDataRow(
+                            name: 'Gas: ',
+                            price: Provider.of<DataHandler>(context)
+                                .fuelGrabber
+                                .fuelData
+                                .gasPrice),
                       ],
                       width: constraints.maxWidth,
-                      height: constraints.maxHeight * 0.4,
+                      height: constraints.maxHeight * 0.41,
                     ),
                   ],
                 );

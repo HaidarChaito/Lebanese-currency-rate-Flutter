@@ -3,7 +3,7 @@ import 'package:lirarate/shared/app_colors.dart';
 import 'package:lirarate/shared/constants.dart';
 
 class BottomCard extends StatelessWidget {
-  final List<String> child;
+  final List<Widget> child;
   final double width;
   final double height;
   const BottomCard({
@@ -39,11 +39,7 @@ class BottomCard extends StatelessWidget {
           ),
           child: Padding(
             padding: EdgeInsets.all(AppSize.d8),
-            child: Text(
-              child[index],
-              style: AppTextStyles.kFuelListStyle,
-              textAlign: TextAlign.center,
-            ),
+            child: child[index],
           ),
         ),
         itemCount: 4,
