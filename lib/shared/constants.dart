@@ -5,6 +5,7 @@ class AppSize {
   static double d8 = 8.0;
   static double d12 = 12.0;
   static double d15 = 15.0;
+  static double d19 = 19.0;
   static double d20 = 20.0;
   static double d24 = 24.0;
   static double d28 = 28.0;
@@ -32,7 +33,7 @@ class AppTextStyles {
     color: AppColors.kPrimaryWhite,
   );
   static TextStyle kFuelListStyle = TextStyle(
-      fontSize: AppSize.d20,
+      fontSize: AppSize.d19,
       color: AppColors.kPrimaryBlue,
       fontWeight: FontWeight.bold);
 }

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:lirarate/models/data_handler.dart';
-import 'package:lirarate/screens/home_screen.dart';
-import 'package:provider/provider.dart';
+import 'package:get/get.dart';
+import 'package:lirarate/view/home_screen.dart';
+import 'package:lirarate/shared/routes.dart';
+import 'package:lirarate/util/home_binding.dart';
 
 void main() => runApp(const MyApp());
 
@@ -10,14 +11,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => DataHandler(),
-      child: MaterialApp(
-        home: const HomeScreen(),
-        theme: ThemeData(
-          fontFamily: 'Nunito',
-        ),
+    return GetMaterialApp(
+      theme: ThemeData(
+        fontFamily: 'Nunito',
       ),
+      initialRoute: Routes.home,
+      getPages: [
+        GetPage(
+            name: Routes.home,
+            page: () => HomeScreen(),
+            binding: HomeBinding()),
+      ],
     );
   }
 }

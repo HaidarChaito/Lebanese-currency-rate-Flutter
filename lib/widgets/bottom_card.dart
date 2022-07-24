@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:lirarate/shared/app_colors.dart';
 import 'package:lirarate/shared/constants.dart';
 
@@ -7,10 +8,11 @@ class BottomCard extends StatelessWidget {
   final double width;
   final double height;
   const BottomCard({
+    Key? key,
     required this.child,
     required this.width,
     required this.height,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
